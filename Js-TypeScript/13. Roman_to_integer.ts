@@ -45,8 +45,11 @@ function checkRomanSymbolValidity(string: string): boolean {
 };
 
 function checkRomanNumberValidity(string: string): boolean{
-    for (let i = 0; i < string.length-2; i++) {
-        if (!checkRules(string[i], string[i+1])) return false      
+    for (let i = 0; i < string.length-1; i++) {
+        if (!checkRules(string[i], string[i+1])) return false  
+        if ( i <= string.length-2){
+            if ((string[i] == string[i+2]) && (string[i] != string[i+1])) return false
+        }    
     };
     return true;
 };
@@ -74,11 +77,10 @@ function checkRules(currentChar: string, nextChar: string): boolean{
 
         return false
     }
-
     return true;
 };
 
-const testArray = "CXXIV";
+const testArray = "XCIX";
 
 // console.log(`Valid Roman Symbols: ${checkRomanSymbolValidity(testArray)}`);
 // console.log(`Valid Roman Number: ${checkRomanNumberValidity(testArray)}`);
