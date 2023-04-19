@@ -40,10 +40,10 @@ function checkRomanSymbolValidity(string: string): boolean {
 
 function checkRomanNumberValidity(string: string): boolean{
     for (let i = 0; i < string.length-1; i++) {
-        if (!checkRules(string[i], string[i+1])) return false  
-        if (( i <= string.length-2)
-            && (string[i] == string[i+2]) && (string[i] != string[i+1])
-            && (string[i+1] != "C" && string[i+1] != "D" && string[i+1] != "M")
+        if ((!checkRules(string[i], string[i+1]))  
+            && (( i <= string.length-2)
+                && (string[i] == string[i+2]) && (string[i] != string[i+1])
+                && (string[i+1] != "C" && string[i+1] != "D" && string[i+1] != "M"))
         ) return false
     };
     return true;
