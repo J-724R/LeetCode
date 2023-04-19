@@ -1,4 +1,3 @@
-
 const RomanSymbolsValues: any = {
     I: 1,
     V: 5,
@@ -14,13 +13,8 @@ function romanToInt(string: string): number | string {
     const validRomanNumber = checkRomanNumberValidity(string);
     let number = 0;
 
-    if (!validRomanSymbols) {
-        return "Invalid roman symbols";
-    }
-    if (!validRomanNumber) {
-        return "Invalid roman number";
-    }
-
+    if (!validRomanSymbols) return "Invalid roman symbols";
+    if (!validRomanNumber) return "Invalid roman number";
 
     for (let i = 0; i < string.length; i++) {
         const current = RomanSymbolsValues[string[i]];
@@ -47,9 +41,10 @@ function checkRomanSymbolValidity(string: string): boolean {
 function checkRomanNumberValidity(string: string): boolean{
     for (let i = 0; i < string.length-1; i++) {
         if (!checkRules(string[i], string[i+1])) return false  
-        if ( i <= string.length-2){
-            if ((string[i] == string[i+2]) && (string[i] != string[i+1])) return false
-        }    
+        if (( i <= string.length-2)
+            && (string[i] == string[i+2]) && (string[i] != string[i+1])
+            && (string[i+1] != "C" && string[i+1] != "D" && string[i+1] != "M")
+        ) return false
     };
     return true;
 };
@@ -80,9 +75,6 @@ function checkRules(currentChar: string, nextChar: string): boolean{
     return true;
 };
 
-const testArray = "XCIX";
-
-// console.log(`Valid Roman Symbols: ${checkRomanSymbolValidity(testArray)}`);
-// console.log(`Valid Roman Number: ${checkRomanNumberValidity(testArray)}`);
+const testArray = "MCMXCIV";
 
 console.log(romanToInt(testArray))
