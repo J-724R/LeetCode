@@ -1,3 +1,5 @@
+// invalid Solution due to time limit exceeded
+
 const numArray = [1, 3, 5 ,7, 15]
 
 function containsDup(numArray: number[]): boolean{
@@ -12,6 +14,7 @@ function containsDup(numArray: number[]): boolean{
         return
       }
     });
+    if(duplicated) return 
   });
 
   return duplicated
