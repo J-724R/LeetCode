@@ -12,9 +12,9 @@ class Solution:
     hashTable = {}
     for index, value in enumerate(nums):
       hashTable[value] = index
-      diference = target - value
-      if diference in hashTable:
-        return print([hashTable[diference], index])
+      difference = target - value
+      if difference in hashTable:
+        return print([hashTable[difference], index])
     
     print(json.dumps(hashTable, indent=4))
 
