@@ -8,7 +8,7 @@ function bubbleSort(arr: number[]){
 
   function recursiveBubbleSort(arr: number[], size: number){
     size -= 1
-    if (size == 0) return arr
+    if (size == 1) return arr
 
     let temp: number
     for (let i = 0; i < size; i++) {
@@ -18,14 +18,15 @@ function bubbleSort(arr: number[]){
         arr[i+1] = temp
       }
     }
-    console.log(arr);
+    console.log(`${arr}`);
     recursiveBubbleSort(arr, size)
   }
 
+  console.log(`${arr}`);
   return recursiveBubbleSort(arr, size)
 }
 
-bubbleSort([4, 7, 8, 1, 9, 2])
+bubbleSort([4, 7, 8, 1, 9, 2, 3, 15, 1])
 
 function LeetCodeMerge(nums1: number[], m: number, nums2: number[], n: number): void {
     
