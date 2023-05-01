@@ -1,3 +1,5 @@
+from collections import Counter
+
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
       hashmap = {}
@@ -13,4 +15,9 @@ class Solution:
         else: return False
       return True
     
-    print(canConstruct('strings', 'strings', 'strings'))
+    # using counter
+    def canConstruct1(self, ransomNote: str, magazine: str) -> bool:
+      st1, st2 = Counter(ransomNote), Counter(magazine)
+      if st1 & st2 == st1:
+          return True
+      return False
