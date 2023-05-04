@@ -20,3 +20,11 @@ class Solution:
         if node.right: queue.append(node.right)
       result.append(level)
     return len(result) 
+  
+# Another solution from c++ code
+
+def levelOrderII(self, root: Optional[TreeNode]) -> List[List[int]]:
+  if root == None: return 0
+  left = levelOrderII(root.left)
+  right = levelOrderII(root.right) 
+  return max(left, right) + 1;
