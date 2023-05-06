@@ -19,3 +19,16 @@ class Solution:
         if n1 + n2 < k: n1 = next(head)
         elif n1 + n2 > k: n2 = next(tail)
         else: return True    
+
+
+# Faster Solution
+class Solution:
+    def __init__(self):
+        self.d={}
+        
+    def findTarget(self, root: TreeNode, k: int) -> bool:
+        if root:    
+            if root.val in self.d:
+                return True
+            self.d[k-root.val] = root.val
+            return self.findTarget(root.left,k) or self.findTarget(root.right,k)         
