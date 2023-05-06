@@ -12,3 +12,23 @@ class Solution:
             return dfs(node.left, low, node.val) and dfs(node.right, node.val, high)
         
         return dfs(root, -float("inf"), float("inf"))
+    
+# Iterative solution
+class SolutionII:
+  def isValidBST(self, root: Optional[TreeNode]) -> bool:
+    
+    Q = [[root,float("-inf"),float("inf")]]
+
+    while Q:
+      node, lower, upper  = Q.pop()
+    
+      validNode = lower < node.val < upper
+      if not validNode:
+          return False
+      
+      if node.left:
+          Q.append([node.left,lower,node.val])
+      if node.right:
+          Q.append([node.right,node.val,upper])
+
+    return True
