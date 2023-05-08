@@ -1,5 +1,5 @@
 class Solution:
-    def longestCommonPrefix(self, strs):
+    def longestCommonPrefix(self, strs):  
       res = ""
 
       for i in range(len(strs[0])):
@@ -24,7 +24,7 @@ class SolutionII:
       if strs == None: return ""
       if len(strs) == 1: return strs[0]
 
-      strs.sort(0)
+      strs.sort()
       prefix = ""
       for i in range(len(strs[0])):
         if strs[0][i] == strs[-1][i]:
