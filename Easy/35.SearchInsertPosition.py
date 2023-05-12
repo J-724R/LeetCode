@@ -8,3 +8,11 @@ class Solution:
             else:
                 right = mid
         return left
+
+# Another sol using built in tools. much faster 
+
+import bisect
+
+class SolutionII:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        return bisect.bisect_left(nums, target)
