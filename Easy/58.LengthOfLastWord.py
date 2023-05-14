@@ -9,6 +9,15 @@ class Solution:
 
         return result
 
-class Solution:
+class SolutionII:
     def lengthOfLastWord(self, s: str) -> int:
       return 0 if len(s.split())==0 else len(s.split()[-1])
+    
+# Without built in methods
+class SolutionIII:
+    def lengthOfLastWord(self, s):
+        end = len(s) - 1
+        while end > 0 and s[end] == " ": end -= 1
+        beg = end
+        while beg >= 0 and s[beg] != " ": beg -= 1
+        return end - beg
