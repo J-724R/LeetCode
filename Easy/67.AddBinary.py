@@ -12,3 +12,51 @@ class Solution:
 
       if carry != 0 : res += str(carry);
       return res[::-1]
+
+
+# another method found by hridoy100
+class Solution {
+    public String addBinary(String a, String b) {
+        StringBuilder sb = new StringBuilder();
+        int smaller = a.length()-1, larger = b.length()-1;
+        if(smaller>larger){
+            int tmp = smaller;
+            smaller = larger;
+            larger = tmp;
+            String temp = a;
+            a = b;
+            b = temp;
+        }
+        int carry = 0;
+        while(larger>=0){
+            int ch1 = (smaller>=0)?a.charAt(smaller)-'0':0;
+            int ch2 = b.charAt(larger)-'0';
+            int sum = ch1 + ch2 + carry;
+            // 2 = 10
+            if(sum == 2){
+                carry = 1;
+                sb.append("0");
+            }
+            // 3 = 11
+            else if(sum == 3){
+                carry = 1;
+                sb.append("1");
+            }
+            // 1 = 1, or, 0 = 0
+            else{
+                carry = 0;
+                char ch = (char)(sum+'0');
+                sb.append(ch);
+            }
+            smaller--;
+            larger--;
+        }
+        // if there's still one carry left!
+        if(carry == 1){
+            sb.append("1");
+        }
+        
+        sb.reverse();
+        return sb.toString();
+    }
+}
