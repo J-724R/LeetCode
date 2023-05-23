@@ -17,3 +17,9 @@ class Solution:
         B=operations.count("X++")
         
         return A+B-(len(operations)-A-B)
+    
+# with dictionary
+class Solution:
+    def finalValueAfterOperations(self, operations: List[str]) -> int:
+        op_dict = {"-" : -1, "+":1}
+        return sum(op_dict[op[1]] for op in operations)
