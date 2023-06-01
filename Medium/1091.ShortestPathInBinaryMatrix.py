@@ -1,3 +1,4 @@
+# Beats 90% by WangQiuc
 class Solution:
     def shortestPathBinaryMatrix(self, grid: List[List[int]]) -> int:
         n = len(grid)
