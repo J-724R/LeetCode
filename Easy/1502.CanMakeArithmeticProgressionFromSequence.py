@@ -1,7 +1,7 @@
 class Solution:
     def canMakeArithmeticProgression(self, arr: List[int]) -> bool:
         arr.sort()
-        l = len(arr)
+        l = len(arr) # It's way faster without this line
         dif = arr[1]-arr[0]
 
         for i in range(2,l):
