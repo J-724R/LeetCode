@@ -22,3 +22,20 @@ class Solution:
             ranges.append(str(start) + "->" + str(nums[-1]))
 
         return ranges
+
+# Way faster solution by PratikSen07, beats 80%
+class Solution(object):
+    def summaryRanges(self, nums):
+        output = []
+        idx = 0
+        while idx < len(nums):
+            beg = nums[idx]
+            while idx+1 < len(nums) and nums[idx+1] == nums[idx] + 1:
+                idx += 1
+            last = nums[idx]
+            if beg == last:
+                output.append(str(beg))
+            else:
+                output.append(str(beg) + "->" + str(last))
+            idx += 1
+        return output; 
